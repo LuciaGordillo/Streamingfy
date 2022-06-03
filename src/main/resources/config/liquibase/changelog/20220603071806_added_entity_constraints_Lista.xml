@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Lista.
+    -->
+    <changeSet id="20220603071806-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="pelicula_id"
+                                 baseTableName="lista"
+                                 constraintName="fk_lista__pelicula_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pelicula"/>
+
+        <addForeignKeyConstraint baseColumnNames="perfiles_id"
+                                 baseTableName="lista"
+                                 constraintName="fk_lista__perfiles_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="perfiles"/>
+    </changeSet>
+</databaseChangeLog>

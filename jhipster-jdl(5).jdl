@@ -1,0 +1,42 @@
+application {
+config {
+baseName Streamingfy,
+applicationType monolith,
+packageName com.streamingfy.app,
+authenticationType jwt,
+prodDatabaseType mysql,
+clientFramework angular,
+buildTool maven,
+cacheProvider ehcache,
+clientPackageManager npm,
+databaseType sql
+devDatabaseType mysql
+languages [es,en]
+nativeLanguage es
+}
+entities *
+}
+
+entity Pelicula {
+	titulo String
+    genero String
+    descripcion String
+    calificacion Integer
+    estreno ZonedDateTime
+    imagen String
+    url String
+}
+entity Lista {
+	countryName String
+}
+entity Perfiles {
+	Imagen String
+	Nombre String
+	}
+
+relationship ManyToOne {
+	Perfiles to User
+    Perfiles to Pelicula
+    Lista to Pelicula
+    Lista to Perfiles
+}

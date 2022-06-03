@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="PerfilesHeading">
+    <span jhiTranslate="streamingfyApp.perfiles.home.title">Perfiles</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="streamingfyApp.perfiles.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-perfiles"
+        [routerLink]="['/perfiles/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="streamingfyApp.perfiles.home.createLabel"> Create a new Perfiles </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="perfiles?.length === 0">
+    <span jhiTranslate="streamingfyApp.perfiles.home.notFound">No perfiles found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="perfiles && perfiles.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="streamingfyApp.perfiles.imagen">Imagen</span></th>
+          <th scope="col"><span jhiTranslate="streamingfyApp.perfiles.nombre">Nombre</span></th>
+          <th scope="col"><span jhiTranslate="streamingfyApp.perfiles.user">User</span></th>
+          <th scope="col"><span jhiTranslate="streamingfyApp.perfiles.pelicula">Pelicula</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let perfiles of perfiles; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/perfiles', perfiles.id, 'view']">{{ perfiles.id }}</a>
+          </td>
+          <td>{{ perfiles.imagen }}</td>
+          <td>{{ perfiles.nombre }}</td>
+          <td>
+            {{ perfiles.user?.id }}
+          </td>
+          <td>
+            <div *ngIf="perfiles.pelicula">
+              <a [routerLink]="['/pelicula', perfiles.pelicula?.id, 'view']">{{ perfiles.pelicula?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/perfiles', perfiles.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/perfiles', perfiles.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(perfiles)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

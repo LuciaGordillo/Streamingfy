@@ -1,0 +1,43 @@
+{
+  "applications": ["Streamingfy"],
+  "changelogDate": "20220603071906",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "perfiles",
+  "fields": [
+    {
+      "fieldName": "imagen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Perfiles",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "perfiles",
+      "relationshipName": "user",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "pelicula",
+      "otherEntityRelationshipName": "perfiles",
+      "relationshipName": "pelicula",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "lista",
+      "otherEntityRelationshipName": "perfiles",
+      "relationshipName": "lista",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

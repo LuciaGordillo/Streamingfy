@@ -1,0 +1,28 @@
+{
+  "streamingfyApp": {
+    "perfiles": {
+      "home": {
+        "title": "Perfiles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Perfiles",
+        "createOrEditLabel": "Create or edit a Perfiles",
+        "notFound": "No Perfiles found"
+      },
+      "created": "A new Perfiles is created with identifier {{ param }}",
+      "updated": "A Perfiles is updated with identifier {{ param }}",
+      "deleted": "A Perfiles is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Perfiles {{ id }}?"
+      },
+      "detail": {
+        "title": "Perfiles"
+      },
+      "id": "ID",
+      "imagen": "Imagen",
+      "nombre": "Nombre",
+      "user": "User",
+      "pelicula": "Pelicula",
+      "lista": "Lista"
+    }
+  }
+}

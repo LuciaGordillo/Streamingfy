@@ -1,0 +1,33 @@
+{
+  "applications": ["Streamingfy"],
+  "changelogDate": "20220603071806",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "lista",
+  "fields": [
+    {
+      "fieldName": "countryName",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Lista",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "pelicula",
+      "otherEntityRelationshipName": "lista",
+      "relationshipName": "pelicula",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "perfiles",
+      "otherEntityRelationshipName": "lista",
+      "relationshipName": "perfiles",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

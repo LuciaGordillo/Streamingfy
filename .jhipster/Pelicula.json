@@ -1,0 +1,57 @@
+{
+  "applications": ["Streamingfy"],
+  "changelogDate": "20220603071706",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "pelicula",
+  "fields": [
+    {
+      "fieldName": "titulo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "genero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "calificacion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "estreno",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "imagen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Pelicula",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "perfiles",
+      "otherEntityRelationshipName": "pelicula",
+      "relationshipName": "perfiles",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "lista",
+      "otherEntityRelationshipName": "pelicula",
+      "relationshipName": "lista",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="perfiles">
+      <h2 data-cy="perfilesDetailsHeading"><span jhiTranslate="streamingfyApp.perfiles.detail.title">Perfiles</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ perfiles.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="streamingfyApp.perfiles.imagen">Imagen</span></dt>
+        <dd>
+          <span>{{ perfiles.imagen }}</span>
+        </dd>
+        <dt><span jhiTranslate="streamingfyApp.perfiles.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ perfiles.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="streamingfyApp.perfiles.user">User</span></dt>
+        <dd>
+          <span>{{ perfiles.user?.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="streamingfyApp.perfiles.pelicula">Pelicula</span></dt>
+        <dd>
+          <div *ngIf="perfiles.pelicula">
+            <a [routerLink]="['/pelicula', perfiles.pelicula?.id, 'view']">{{ perfiles.pelicula?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/perfiles', perfiles.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

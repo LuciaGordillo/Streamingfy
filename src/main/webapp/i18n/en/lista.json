@@ -1,0 +1,26 @@
+{
+  "streamingfyApp": {
+    "lista": {
+      "home": {
+        "title": "Listas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Lista",
+        "createOrEditLabel": "Create or edit a Lista",
+        "notFound": "No Listas found"
+      },
+      "created": "A new Lista is created with identifier {{ param }}",
+      "updated": "A Lista is updated with identifier {{ param }}",
+      "deleted": "A Lista is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Lista {{ id }}?"
+      },
+      "detail": {
+        "title": "Lista"
+      },
+      "id": "ID",
+      "countryName": "Country Name",
+      "pelicula": "Pelicula",
+      "perfiles": "Perfiles"
+    }
+  }
+}
