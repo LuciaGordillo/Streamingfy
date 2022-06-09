@@ -51,6 +51,10 @@ export class PeliculaService {
       .get<IPelicula[]>(this.resourceUrl, { params: options, observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
+  buscar(filtro: string): Observable<HttpResponse<IPelicula[]>> {
+    const options = createRequestOption(filtro);
+    return this.http.get<IPelicula[]>(`${this.resourceUrl}/titulo/${filtro}`, { observe: 'response' });
+  }
 
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });

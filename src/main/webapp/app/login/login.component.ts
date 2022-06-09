@@ -8,12 +8,14 @@ import { AccountService } from 'app/core/auth/account.service';
 @Component({
   selector: 'jhi-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   @ViewChild('username', { static: false })
   username!: ElementRef;
 
   authenticationError = false;
+  images = [944, 1011, 984].map(n => `https://picsum.photos/id/${n}/900/500`);
 
   loginForm = this.fb.group({
     username: [null, [Validators.required]],
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
           this.authenticationError = false;
           if (!this.router.getCurrentNavigation()) {
             // There were no routing during login (eg from navigationToStoredUrl)
-            this.router.navigate(['']);
+            this.router.navigate(['/pelicula/listado']);
           }
         },
         error: () => (this.authenticationError = true),

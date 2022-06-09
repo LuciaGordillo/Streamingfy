@@ -1,0 +1,30 @@
+<div class="container-general">
+  <div class="slider-films">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[0]" alt="" />
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[1]" alt="" />
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="images[2]" alt="" />
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mb-5 animate__animated animate__fadeIn" *ngFor="let pelicula of peliculas; trackBy: trackId">
+      <img [src]="pelicula.imagen" class="img-fluid poster taman" (click)="open(pelicula)" />
+      <div>
+        <h3 class="text-white">{{ pelicula.titulo }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

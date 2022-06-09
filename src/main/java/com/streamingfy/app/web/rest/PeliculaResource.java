@@ -2,6 +2,7 @@ package com.streamingfy.app.web.rest;
 
 import com.streamingfy.app.domain.Pelicula;
 import com.streamingfy.app.repository.PeliculaRepository;
+import com.streamingfy.app.service.PeliculaService;
 import com.streamingfy.app.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -33,8 +34,10 @@ public class PeliculaResource {
     private String applicationName;
 
     private final PeliculaRepository peliculaRepository;
+    private final PeliculaService peliculaService;
 
-    public PeliculaResource(PeliculaRepository peliculaRepository) {
+    public PeliculaResource(PeliculaService peliculaService, PeliculaRepository peliculaRepository) {
+        this.peliculaService = peliculaService;
         this.peliculaRepository = peliculaRepository;
     }
 
@@ -177,6 +180,11 @@ public class PeliculaResource {
         log.debug("REST request to get Pelicula : {}", id);
         Optional<Pelicula> pelicula = peliculaRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(pelicula);
+    }
+
+    @GetMapping("/peliculas/titulo/{filtro}")
+    public List<Pelicula> getPeliculasFiltradas(@PathVariable String filtro) {
+        return peliculaRepository.findByTituloContaining(filtro);
     }
 
     /**

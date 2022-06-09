@@ -6,7 +6,9 @@ import { PeliculaComponent } from '../list/pelicula.component';
 import { PeliculaDetailComponent } from '../detail/pelicula-detail.component';
 import { PeliculaUpdateComponent } from '../update/pelicula-update.component';
 import { PeliculaRoutingResolveService } from './pelicula-routing-resolve.service';
-
+import { PeliculaListadoComponent } from '../registros/listado.component';
+import { BuscarComponent } from '../busqueda/busqueda.component';
+import { ReproducirComponent } from '../reproducir/reproducir.component';
 const peliculaRoute: Routes = [
   {
     path: '',
@@ -32,6 +34,30 @@ const peliculaRoute: Routes = [
   {
     path: ':id/edit',
     component: PeliculaUpdateComponent,
+    resolve: {
+      pelicula: PeliculaRoutingResolveService,
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: 'listado',
+    component: PeliculaListadoComponent,
+    resolve: {
+      pelicula: PeliculaRoutingResolveService,
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: ':txtBuscar/buscar',
+    component: BuscarComponent,
+    resolve: {
+      pelicula: PeliculaRoutingResolveService,
+    },
+    canActivate: [UserRouteAccessService],
+  },
+  {
+    path: ':id/ver',
+    component: ReproducirComponent,
     resolve: {
       pelicula: PeliculaRoutingResolveService,
     },

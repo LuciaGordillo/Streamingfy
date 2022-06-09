@@ -1,35 +1,30 @@
 <div>
   <h2 id="page-heading" data-cy="PeliculaHeading">
-    <span jhiTranslate="streamingfyApp.pelicula.home.title">Peliculas</span>
+    <span jhiTranslate="streamingfyApp.pelicula.home.title" class="text-white">Peliculas</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="streamingfyApp.pelicula.home.refreshListLabel">Refresh List</span>
+        <span jhiTranslate="streamingfyApp.lista.home.refreshListLabel">Refresh List</span>
       </button>
 
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
-        class="btn btn-primary jh-create-entity create-pelicula"
+        class="btn btn-primary jh-create-entity create-lista"
         [routerLink]="['/pelicula/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="streamingfyApp.pelicula.home.createLabel"> Create a new Pelicula </span>
+        <span jhiTranslate="streamingfyApp.lista.home.createLabel"> Create a new Pelicula </span>
       </button>
     </div>
   </h2>
-
-  <jhi-alert-error></jhi-alert-error>
-
-  <jhi-alert></jhi-alert>
-
   <div class="alert alert-warning" id="no-result" *ngIf="peliculas?.length === 0">
     <span jhiTranslate="streamingfyApp.pelicula.home.notFound">No peliculas found</span>
   </div>
 
   <div class="table-responsive" id="entities" *ngIf="peliculas && peliculas.length > 0">
-    <table class="table table-striped" aria-describedby="page-heading">
+    <table class="table table-striped table-dark" aria-describedby="page-heading" style="vertical-align: middle">
       <thead>
         <tr>
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>

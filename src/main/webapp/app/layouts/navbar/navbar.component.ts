@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit {
   version = '';
   account: Account | null = null;
   entitiesNavbarItems: any[] = [];
+  txtBuscar = '';
 
   constructor(
     private loginService: LoginService,
@@ -71,5 +72,10 @@ export class NavbarComponent implements OnInit {
 
   toggleNavbar(): void {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+  buscarTitulo(txtBuscar: string): void {
+    /*  txtBuscar = txtBuscar.trim(); */
+
+    this.router.navigate(['/pelicula', txtBuscar, 'buscar']);
   }
 }

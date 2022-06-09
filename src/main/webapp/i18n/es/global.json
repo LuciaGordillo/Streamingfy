@@ -55,6 +55,7 @@
           "suffix": ", puede intentar con las cuentas predeterminadas:<br/>- Administrador (usuario=\"admin\" y contraseña=\"admin\") <br/>- Usuario (usuario=\"user\" y contraseña=\"user\")."
         },
         "register": {
+          "hasaccount": "Bienvenido de nuevo",
           "noaccount": "¿Aún no tienes una cuenta?",
           "link": "Crea una cuenta"
         }

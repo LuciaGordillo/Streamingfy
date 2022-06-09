@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StreamingfyApp<streamingfy>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.streamingfy.app.StreamingfyApp",
+            "projectName": "streamingfy",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

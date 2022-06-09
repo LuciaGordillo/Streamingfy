@@ -1,0 +1,13 @@
+<div class="row" onload="loadAll()">
+  <h1 class="text-white">
+    Buscar películas <small class="text-capitalize text-white"> {{ filtro }} </small>
+  </h1>
+
+  <div class="col-md-3 mb-5 animate__animated animate__fadeIn" *ngFor="let pelicula of peliculas; trackBy: trackId">
+    <img [src]="pelicula.imagen" class="img-fluid poster taman" (click)="open(pelicula)" />
+
+    <div>
+      <h3 class="text-white">{{ pelicula.titulo }}</h3>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<form *ngIf="pelicula" name="deleteForm">
+  <div class="modal-header">
+    <h1>{{ pelicula.titulo }}</h1>
+    <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true" (click)="cancel()"></button>
+  </div>
+
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <img [src]="pelicula.imagen" class="img-fluid poster taman" />
+      </div>
+      <div class="col">
+        <p>{{ pelicula.descripcion }}</p>
+        <hr />
+        <!--   <div *ngFor="let estrellas of pelicula; "></div>
+ -->
+        <button class="btn btn-success" [routerLink]="['/pelicula', pelicula.id, 'ver']">
+          <fa-icon icon="play"></fa-icon><span>Ver</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

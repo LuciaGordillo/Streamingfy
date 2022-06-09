@@ -1,9 +1,10 @@
 <nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
-      <span class="logo-img"></span>
-      <span jhiTranslate="global.title" class="navbar-title">Streamingfy</span>
-      <span class="navbar-version">{{ version }}</span>
+      <!--       <span class="logo-img"></span>
+ -->
+      <!--  <span jhiTranslate="global.title" class="navbar-title">Streamingfy</span> -->
+      <img class="logo-img" src="../../../content/img/logo-h.jpg" />
     </a>
     <a
       class="navbar-toggler d-lg-none"
@@ -17,8 +18,20 @@
     >
       <fa-icon icon="bars"></fa-icon>
     </a>
+    <div></div>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
       <ul class="navbar-nav ms-auto">
+        <li *ngSwitchCase="true">
+          <input
+            #txtBuscar
+            class="form-control mr-2"
+            type="search"
+            (keyup.enter)="buscarTitulo(txtBuscar.value)"
+            placeholder="Buscar película"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" (click)="buscarTitulo(txtBuscar.value)">Buscar</button>
+        </li>
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
           <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
             <span>
@@ -27,9 +40,18 @@
             </span>
           </a>
         </li>
+
+        <li *ngSwitchCase="true">
+          <a class="nav-link" routerLink="/pelicula/listado" (click)="collapseNavbar()">
+            <span>
+              <fa-icon icon="film"></fa-icon>
+              <span jhiTranslate="global.menu.entities.pelicula">Peliculas</span>
+            </span>
+          </a>
+        </li>
         <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
         <li
-          *ngSwitchCase="true"
+          *jhiHasAnyAuthority="'ROLE_ADMIN'"
           ngbDropdown
           class="nav-item dropdown pointer"
           display="dynamic"
@@ -55,7 +77,7 @@
                 <span jhiTranslate="global.menu.entities.pelicula">Pelicula</span>
               </a>
             </li>
-            <li>
+            <!--  <li>
               <a
                 class="dropdown-item"
                 routerLink="lista"
@@ -78,7 +100,7 @@
                 <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.entities.perfiles">Perfiles</span>
               </a>
-            </li>
+            </li> -->
             <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
           </ul>
         </li>
@@ -103,7 +125,7 @@
                 <span jhiTranslate="global.menu.admin.userManagement">User management</span>
               </a>
             </li>
-            <li>
+            <!--  <li>
               <a class="dropdown-item" routerLink="admin/metrics" routerLinkActive="active" (click)="collapseNavbar()">
                 <fa-icon icon="tachometer-alt" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
@@ -132,7 +154,7 @@
                 <fa-icon icon="book" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.admin.apidocs">API</span>
               </a>
-            </li>
+            </li> -->
             <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
           </ul>
         </li>
@@ -168,7 +190,9 @@
               <span jhiTranslate="global.menu.account.main">Account</span>
             </span>
             <span *ngIf="account?.imageUrl">
-              <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
+              <img [src]="account!.imageUrl" class="profile-image rounded-circle" [alt]="account?.firstName" />
+              <!--               <img src="../../../content/img/perfil/starwars/img2.png"class="profile-image rounded-circle" [alt]="account?.firstName" />
+ -->
             </span>
           </a>
           <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
